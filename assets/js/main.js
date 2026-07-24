@@ -6,12 +6,6 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------- Page loader ---------------- */
-  window.addEventListener('load', () => {
-    const loader = document.querySelector('.page-loader');
-    if (loader) setTimeout(() => loader.classList.add('is-hidden'), 250);
-  });
-
   /* ---------------- Header scroll state + progress bar ---------------- */
   const header = document.querySelector('.site-header');
   const progress = document.querySelector('.nav-progress');
@@ -34,6 +28,11 @@
   function closeDrawer() {
     drawer && drawer.classList.remove('is-open');
     overlay && overlay.classList.remove('is-open');
+    if (toggle) {
+      toggle.classList.remove('is-active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    }
     document.body.style.overflow = '';
   }
   if (toggle && drawer) {
@@ -41,10 +40,16 @@
       const willOpen = !drawer.classList.contains('is-open');
       drawer.classList.toggle('is-open', willOpen);
       overlay && overlay.classList.toggle('is-open', willOpen);
+      toggle.classList.toggle('is-active', willOpen);
+      toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', willOpen ? 'Close menu' : 'Open menu');
       document.body.style.overflow = willOpen ? 'hidden' : '';
     });
     overlay && overlay.addEventListener('click', closeDrawer);
     drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeDrawer));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeDrawer();
+    });
   }
 
   /* ---------------- Scroll reveal ---------------- */
@@ -242,6 +247,16 @@
           btn.style.pointerEvents = 'none';
         }
       }
+    });
+  });
+
+  /* ---------------- "Apply Now" role prefill (CSP-safe, no inline handlers) ---------------- */
+  document.querySelectorAll('[data-role]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const roleSelect = document.querySelector('select[name="role"]');
+      if (!roleSelect) return;
+      roleSelect.value = btn.getAttribute('data-role');
+      roleSelect.dispatchEvent(new Event('change'));
     });
   });
 

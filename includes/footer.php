@@ -1,7 +1,11 @@
 </main>
 
+<?php $footerFlash = flash_get(); ?>
 <footer class="site-footer">
   <div class="container">
+    <?php if ($footerFlash): ?>
+      <div class="alert alert-<?= $footerFlash['type'] === 'error' ? 'error' : 'success' ?>"><?= h($footerFlash['message']) ?></div>
+    <?php endif; ?>
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/index.php" class="brand">
@@ -33,15 +37,16 @@
           <li><a href="/contact.php">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="footer-col" id="newsletter">
         <h4>Stay Connected</h4>
         <ul style="margin-bottom:16px">
           <li class="flex gap-2 items-center" style="color:var(--text-2);font-size:.9rem"><?= svg_icon('pin') ?> <?= h(COMPANY_ADDRESS_1) ?>, <?= h(COMPANY_CITY) ?></li>
           <li class="flex gap-2 items-center"><a href="tel:<?= h(preg_replace('/[^0-9+]/', '', COMPANY_PHONE)) ?>"><?= svg_icon('phone') ?> <?= h(COMPANY_PHONE) ?></a></li>
           <li class="flex gap-2 items-center"><a href="mailto:<?= h(COMPANY_EMAIL) ?>"><?= svg_icon('mail') ?> <?= h(COMPANY_EMAIL) ?></a></li>
         </ul>
-        <form class="newsletter-form" action="/contact.php" method="get">
-          <input type="email" name="newsletter" placeholder="Your work email" aria-label="Email for newsletter">
+        <form class="newsletter-form" action="/newsletter-submit.php" method="post" data-validate novalidate>
+          <?= csrf_field() ?>
+          <input type="email" name="email" placeholder="Your work email" aria-label="Email for newsletter" required>
           <button type="submit" aria-label="Subscribe"><?= svg_icon('arrow') ?></button>
         </form>
       </div>

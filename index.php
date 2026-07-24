@@ -6,6 +6,10 @@ $pageTitle       = 'QuantAI Corp — AI-Driven IT Consulting, Software Engineeri
 $pageDescription = 'QuantAI Corp is a next-generation enterprise technology partner delivering AI &amp; data solutions, cloud architecture, cybersecurity, DevOps and AI-powered talent intelligence.';
 $pageSlug        = 'index.php';
 
+$partnerLogos = partner_logos();
+$logoRowA = array_slice($partnerLogos, 0, 10);
+$logoRowB = array_slice($partnerLogos, 10, 10);
+
 $latestPosts = [];
 try {
     $stmt = db()->query("SELECT title, slug, excerpt, category, cover_accent, published_at FROM blog_posts WHERE is_published = 1 ORDER BY published_at DESC LIMIT 3");
@@ -57,7 +61,22 @@ require __DIR__ . '/includes/header.php';
     </div>
 
     <div class="logo-strip" data-reveal>
-      <span>Trusted by Leading Enterprises</span>
+      <div class="logo-strip-label"><span>Trusted by Leading Enterprises</span></div>
+      <div class="logo-marquee" aria-hidden="true">
+        <div class="logo-track">
+          <?php foreach (array_merge($logoRowA, $logoRowA) as $logo): ?>
+            <span class="logo-item"><?= logo_glyph($logo['glyph']) ?><span><?= h($logo['name']) ?></span></span>
+          <?php endforeach; ?>
+        </div>
+      </div>
+      <div class="logo-marquee" aria-hidden="true">
+        <div class="logo-track reverse">
+          <?php foreach (array_merge($logoRowB, $logoRowB) as $logo): ?>
+            <span class="logo-item"><?= logo_glyph($logo['glyph']) ?><span><?= h($logo['name']) ?></span></span>
+          <?php endforeach; ?>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:.72rem;color:var(--text-3);margin-top:18px">Representative enterprise partner marks shown for illustration.</p>
     </div>
   </div>
   <div class="scroll-indicator" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>

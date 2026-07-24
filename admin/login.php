@@ -3,6 +3,7 @@ require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../config/db.php';
 
 qc_session_start();
+send_security_headers();
 
 if (!empty($_SESSION['admin_id'])) {
     header('Location: /admin/index.php');

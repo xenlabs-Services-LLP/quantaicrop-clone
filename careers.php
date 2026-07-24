@@ -34,7 +34,7 @@ require __DIR__ . '/includes/header.php';
           <div class="card-icon"><?= svg_icon('chip') ?></div>
           <h3><?= h($job['title']) ?></h3>
           <p><?= h($job['location']) ?> &middot; <?= h($job['experience']) ?> &middot; <?= h($job['type']) ?></p>
-          <a href="#apply" class="btn btn-ghost btn-sm" style="margin-top:18px" onclick="document.querySelector('[name=role]').value='<?= h(addslashes($job['title'])) ?>';document.querySelector('[name=role]').dispatchEvent(new Event('change'));">Apply Now <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+          <a href="#apply" class="btn btn-ghost btn-sm" style="margin-top:18px" data-role="<?= h($job['title']) ?>">Apply Now <span class="arrow"><?= svg_icon('arrow') ?></span></a>
         </div>
       <?php endforeach; ?>
     </div>

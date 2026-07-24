@@ -8,7 +8,11 @@
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+  # Content-Security-Policy is emitted per-request from PHP (see
+  # includes/functions.php -> send_security_headers()) so it can include a
+  # fresh nonce for the JSON-LD structured-data script on every page. Do
+  # not also set it here — two CSP headers are enforced as an
+  # intersection and would break the nonce'd script.
   # Uncomment once served over HTTPS in production:
   # Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
 </IfModule>

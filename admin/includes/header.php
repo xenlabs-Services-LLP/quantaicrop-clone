@@ -3,6 +3,7 @@
  * Admin layout header. Requires auth.php to already be included.
  * Expects: $pageTitle (string), $activeNav (string key matching nav items below).
  */
+send_security_headers();
 $admin = current_admin();
 $activeNav = $activeNav ?? '';
 

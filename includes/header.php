@@ -12,6 +12,7 @@ $pageTitle       = $pageTitle ?? SITE_NAME . ' — ' . SITE_TAGLINE;
 $pageDescription = $pageDescription ?? 'AI-driven IT Consulting, Software Solutions & Talent Intelligence for enterprise-grade digital transformation.';
 $pageSlug        = $pageSlug ?? 'index.php';
 $canonicalUrl    = SITE_URL . '/' . ltrim($pageSlug, '/');
+$cspNonce        = send_security_headers();
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -43,7 +44,7 @@ $canonicalUrl    = SITE_URL . '/' . ltrim($pageSlug, '/');
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 
-<script type="application/ld+json">
+<script type="application/ld+json" nonce="<?= h($cspNonce) ?>">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -69,12 +70,11 @@ $canonicalUrl    = SITE_URL . '/' . ltrim($pageSlug, '/');
 }
 </script>
 <?php if (!empty($pageSchema)): ?>
-<script type="application/ld+json"><?= $pageSchema ?></script>
+<script type="application/ld+json" nonce="<?= h($cspNonce) ?>"><?= $pageSchema ?></script>
 <?php endif; ?>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
-<div class="page-loader" aria-hidden="true"><div class="loader-mark"></div></div>
 <div class="cursor-glow" aria-hidden="true"></div>
 <div class="nav-progress" aria-hidden="true"></div>
 

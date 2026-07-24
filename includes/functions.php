@@ -19,6 +19,33 @@ const SOCIAL_LINKEDIN   = 'https://www.linkedin.com/company/quantaicorp-llc/abou
 const SOCIAL_FACEBOOK   = 'https://www.facebook.com/profile.php?id=61587669915928';
 const SOCIAL_INSTAGRAM  = 'https://www.instagram.com/quantaicorp/';
 
+/**
+ * Emit security headers, including a Content-Security-Policy with a
+ * per-request nonce for inline JSON-LD <script> blocks. Call once, before
+ * any HTML output. Returns the nonce so callers can attach it to any
+ * inline <script> tags on the page (script-src stays strict — no
+ * 'unsafe-inline' — everything else must be an external file).
+ */
+function send_security_headers(): string
+{
+    static $nonce = null;
+    if ($nonce === null) {
+        $nonce = base64_encode(random_bytes(16));
+    }
+    if (!headers_sent()) {
+        header(
+            "Content-Security-Policy: default-src 'self'; " .
+            "script-src 'self' 'nonce-$nonce'; " .
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " .
+            "font-src 'self' https://fonts.gstatic.com; " .
+            "img-src 'self' data:; " .
+            "connect-src 'self'; " .
+            "frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+        );
+    }
+    return $nonce;
+}
+
 /** Escape output for safe HTML rendering. */
 function h(?string $value): string
 {
@@ -199,6 +226,52 @@ function job_openings(): array
 }
 
 const VISA_TYPES = ['H-1B', 'L-1A', 'L-1B', 'O-1', 'TN', 'E-2', 'H-4 EAD', 'OPT', 'CPT', 'Other'];
+
+/**
+ * Placeholder "trusted by" wordmarks for the homepage logo marquee.
+ * These are original, generic, fictitious enterprise names/marks —
+ * NOT real client logos. Swap in real client names + logo files once
+ * client permission/agreements are in place.
+ */
+function partner_logos(): array
+{
+    return [
+        ['name' => 'Nova Systems', 'glyph' => 'hex'],
+        ['name' => 'Meridian Group', 'glyph' => 'circle'],
+        ['name' => 'Vertex Analytics', 'glyph' => 'triangle'],
+        ['name' => 'Ironclad Holdings', 'glyph' => 'square'],
+        ['name' => 'Cobalt Dynamics', 'glyph' => 'diamond'],
+        ['name' => 'Northbridge Capital', 'glyph' => 'hex'],
+        ['name' => 'Aegis Financial', 'glyph' => 'circle'],
+        ['name' => 'Solstice Health', 'glyph' => 'triangle'],
+        ['name' => 'Pinnacle Logistics', 'glyph' => 'square'],
+        ['name' => 'Blueline Manufacturing', 'glyph' => 'diamond'],
+        ['name' => 'Summit Retail Group', 'glyph' => 'hex'],
+        ['name' => 'Cascade Energy', 'glyph' => 'circle'],
+        ['name' => 'Harbor Insurance', 'glyph' => 'triangle'],
+        ['name' => 'Redstone Media', 'glyph' => 'square'],
+        ['name' => 'Lumen Biotech', 'glyph' => 'diamond'],
+        ['name' => 'Anchor Telecom', 'glyph' => 'hex'],
+        ['name' => 'Fairway Real Estate', 'glyph' => 'circle'],
+        ['name' => 'Granite Infrastructure', 'glyph' => 'triangle'],
+        ['name' => 'Orbit Aerospace', 'glyph' => 'square'],
+        ['name' => 'Wells & Carter Legal', 'glyph' => 'diamond'],
+    ];
+}
+
+/** Small monochrome glyph used inside each logo-marquee wordmark. */
+function logo_glyph(string $shape): string
+{
+    $shapes = [
+        'hex'      => '<path d="M12 3l7.5 4.33v9.34L12 21l-7.5-4.33V7.33L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+        'circle'   => '<circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/>',
+        'triangle' => '<path d="M12 4l8.5 15H3.5L12 4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+        'square'   => '<rect x="4.5" y="4.5" width="15" height="15" rx="3" stroke="currentColor" stroke-width="1.6"/>',
+        'diamond'  => '<path d="M12 3l9 9-9 9-9-9 9-9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+    ];
+    $body = $shapes[$shape] ?? $shapes['circle'];
+    return '<svg class="logo-glyph" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' . $body . '</svg>';
+}
 
 /**
  * Original, minimal stroke-icon set (24x24, currentColor) used across the
