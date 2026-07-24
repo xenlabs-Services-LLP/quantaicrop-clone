@@ -60,23 +60,31 @@ require __DIR__ . '/includes/header.php';
       </div>
     </div>
 
-    <div class="logo-strip" data-reveal>
+    <div class="logo-strip" data-reveal="scale">
       <div class="logo-strip-label"><span>Trusted by Leading Enterprises</span></div>
-      <div class="logo-marquee" aria-hidden="true">
-        <div class="logo-track">
-          <?php foreach (array_merge($logoRowA, $logoRowA) as $logo): ?>
-            <span class="logo-item"><?= logo_glyph($logo['glyph']) ?><span><?= h($logo['name']) ?></span></span>
-          <?php endforeach; ?>
+      <div class="logo-panel">
+        <div class="logo-marquee" aria-hidden="true">
+          <div class="logo-track">
+            <?php foreach (array_merge($logoRowA, $logoRowA) as $logo): ?>
+              <span class="logo-item">
+                <span class="logo-glyph-chip <?= h($logo['color']) ?>"><?= logo_glyph($logo['glyph']) ?></span>
+                <span><?= h($logo['name']) ?></span>
+              </span>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        <div class="logo-marquee" aria-hidden="true">
+          <div class="logo-track reverse">
+            <?php foreach (array_merge($logoRowB, $logoRowB) as $logo): ?>
+              <span class="logo-item">
+                <span class="logo-glyph-chip <?= h($logo['color']) ?>"><?= logo_glyph($logo['glyph']) ?></span>
+                <span><?= h($logo['name']) ?></span>
+              </span>
+            <?php endforeach; ?>
+          </div>
         </div>
       </div>
-      <div class="logo-marquee" aria-hidden="true">
-        <div class="logo-track reverse">
-          <?php foreach (array_merge($logoRowB, $logoRowB) as $logo): ?>
-            <span class="logo-item"><?= logo_glyph($logo['glyph']) ?><span><?= h($logo['name']) ?></span></span>
-          <?php endforeach; ?>
-        </div>
-      </div>
-      <p style="text-align:center;font-size:.72rem;color:var(--text-3);margin-top:18px">Representative enterprise partner marks shown for illustration.</p>
+      <p class="logo-panel-note">Representative enterprise partner marks shown for illustration.</p>
     </div>
   </div>
   <div class="scroll-indicator" aria-hidden="true"><span>Scroll</span><span class="line"></span></div>

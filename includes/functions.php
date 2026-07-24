@@ -28,6 +28,14 @@ const SOCIAL_INSTAGRAM  = 'https://www.instagram.com/quantaicorp/';
  */
 function send_security_headers(): string
 {
+    // The session MUST be started before any HTML is echoed — on hosts
+    // with output_buffering off (common on shared hosting), starting it
+    // later (e.g. inside csrf_field() deep in the page body) triggers
+    // "headers already sent" warnings and silently breaks the session.
+    // This function runs first thing in every page template, so it's the
+    // one safe, guaranteed-early place to do it.
+    qc_session_start();
+
     static $nonce = null;
     if ($nonce === null) {
         $nonce = base64_encode(random_bytes(16));
@@ -235,28 +243,21 @@ const VISA_TYPES = ['H-1B', 'L-1A', 'L-1B', 'O-1', 'TN', 'E-2', 'H-4 EAD', 'OPT'
  */
 function partner_logos(): array
 {
-    return [
-        ['name' => 'Nova Systems', 'glyph' => 'hex'],
-        ['name' => 'Meridian Group', 'glyph' => 'circle'],
-        ['name' => 'Vertex Analytics', 'glyph' => 'triangle'],
-        ['name' => 'Ironclad Holdings', 'glyph' => 'square'],
-        ['name' => 'Cobalt Dynamics', 'glyph' => 'diamond'],
-        ['name' => 'Northbridge Capital', 'glyph' => 'hex'],
-        ['name' => 'Aegis Financial', 'glyph' => 'circle'],
-        ['name' => 'Solstice Health', 'glyph' => 'triangle'],
-        ['name' => 'Pinnacle Logistics', 'glyph' => 'square'],
-        ['name' => 'Blueline Manufacturing', 'glyph' => 'diamond'],
-        ['name' => 'Summit Retail Group', 'glyph' => 'hex'],
-        ['name' => 'Cascade Energy', 'glyph' => 'circle'],
-        ['name' => 'Harbor Insurance', 'glyph' => 'triangle'],
-        ['name' => 'Redstone Media', 'glyph' => 'square'],
-        ['name' => 'Lumen Biotech', 'glyph' => 'diamond'],
-        ['name' => 'Anchor Telecom', 'glyph' => 'hex'],
-        ['name' => 'Fairway Real Estate', 'glyph' => 'circle'],
-        ['name' => 'Granite Infrastructure', 'glyph' => 'triangle'],
-        ['name' => 'Orbit Aerospace', 'glyph' => 'square'],
-        ['name' => 'Wells & Carter Legal', 'glyph' => 'diamond'],
+    $names = [
+        ['Nova Systems', 'hex'], ['Meridian Group', 'circle'], ['Vertex Analytics', 'triangle'],
+        ['Ironclad Holdings', 'square'], ['Cobalt Dynamics', 'diamond'], ['Northbridge Capital', 'hex'],
+        ['Aegis Financial', 'circle'], ['Solstice Health', 'triangle'], ['Pinnacle Logistics', 'square'],
+        ['Blueline Manufacturing', 'diamond'], ['Summit Retail Group', 'hex'], ['Cascade Energy', 'circle'],
+        ['Harbor Insurance', 'triangle'], ['Redstone Media', 'square'], ['Lumen Biotech', 'diamond'],
+        ['Anchor Telecom', 'hex'], ['Fairway Real Estate', 'circle'], ['Granite Infrastructure', 'triangle'],
+        ['Orbit Aerospace', 'square'], ['Wells & Carter Legal', 'diamond'],
     ];
+    $colors = ['chip-blue', 'chip-cyan', 'chip-violet'];
+    $logos = [];
+    foreach ($names as $i => [$name, $glyph]) {
+        $logos[] = ['name' => $name, 'glyph' => $glyph, 'color' => $colors[$i % 3]];
+    }
+    return $logos;
 }
 
 /** Small monochrome glyph used inside each logo-marquee wordmark. */
