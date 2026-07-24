@@ -10,7 +10,7 @@ if (!defined('QC_BOOTSTRAPPED')) {
 }
 $pageTitle       = $pageTitle ?? SITE_NAME . ' — ' . SITE_TAGLINE;
 $pageDescription = $pageDescription ?? 'AI-driven IT Consulting, Software Solutions & Talent Intelligence for enterprise-grade digital transformation.';
-$pageSlug        = $pageSlug ?? 'index.php';
+$pageSlug        = $pageSlug ?? '';
 $canonicalUrl    = SITE_URL . '/' . ltrim($pageSlug, '/');
 $cspNonce        = send_security_headers();
 ?><!doctype html>
@@ -80,7 +80,7 @@ $cspNonce        = send_security_headers();
 
 <header class="site-header" id="siteHeader">
   <div class="container nav-row">
-    <a href="/index.php" class="brand">
+    <a href="/" class="brand">
       <span class="brand-mark"><?= svg_icon('brand') ?></span>
       QuantAI Corp
     </a>

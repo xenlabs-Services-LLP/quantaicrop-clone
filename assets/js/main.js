@@ -260,10 +260,10 @@
     });
   });
 
-  /* ---------------- Active nav link ---------------- */
-  const path = location.pathname.split('/').pop() || 'index.php';
+  /* ---------------- Active nav link (clean-URL aware) ---------------- */
+  const currentPath = location.pathname.replace(/\/+$/, '') || '/';
   document.querySelectorAll('.nav-links a, .mobile-drawer a').forEach((a) => {
-    const href = a.getAttribute('href').split('/').pop();
-    if (href === path) a.classList.add('is-active');
+    const hrefPath = (a.getAttribute('href') || '').split('#')[0].split('?')[0].replace(/\/+$/, '') || '/';
+    if (hrefPath === currentPath) a.classList.add('is-active');
   });
 })();
