@@ -4,7 +4,7 @@ require_once __DIR__ . '/config/db.php';
 
 $pageTitle       = 'QuantAI Corp — AI-Driven IT Consulting, Software Engineering & Talent Intelligence';
 $pageDescription = 'QuantAI Corp is a next-generation enterprise technology partner delivering AI &amp; data solutions, cloud architecture, cybersecurity, DevOps and AI-powered talent intelligence.';
-$pageSlug        = 'index.php';
+$pageSlug        = '';
 
 $partnerLogos = partner_logos();
 $logoRowA = array_slice($partnerLogos, 0, 10);
@@ -272,7 +272,7 @@ require __DIR__ . '/includes/header.php';
     </div>
     <div class="blog-grid" data-stagger>
       <?php foreach ($latestPosts as $post): ?>
-        <a href="/blog-post.php?slug=<?= h($post['slug']) ?>" class="blog-card" data-reveal="scale">
+        <a href="/blog/<?= h($post['slug']) ?>" class="blog-card" data-reveal="scale">
           <div class="blog-cover <?= h(cover_accent_class($post['cover_accent'])) ?>">
             <span class="blog-cover-tag"><?= h($post['category']) ?></span>
             <span class="blog-cover-icon"><?= svg_icon(category_icon($post['category'])) ?></span>

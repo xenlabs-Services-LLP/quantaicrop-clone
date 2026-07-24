@@ -4,7 +4,7 @@ require_once __DIR__ . '/config/db.php';
 
 $pageTitle       = "Contact Us — QuantAI Corp";
 $pageDescription = "Get in touch with QuantAI Corp — enterprise IT consulting, AI & data solutions, and talent intelligence. Charlotte, NC.";
-$pageSlug        = 'contact.php';
+$pageSlug        = 'contact';
 
 $flash = flash_get();
 $openings = job_openings();
@@ -168,7 +168,7 @@ require __DIR__ . '/includes/header.php';
     </div>
     <div class="cards-grid cols-3" data-stagger>
       <?php foreach ($latestPosts as $post): ?>
-        <a href="/blog-post.php?slug=<?= h($post['slug']) ?>" class="card" data-reveal="scale">
+        <a href="/blog/<?= h($post['slug']) ?>" class="card" data-reveal="scale">
           <span class="blog-tag"><?= h($post['category']) ?></span>
           <h3 style="margin-top:8px"><?= h($post['title']) ?></h3>
           <span class="blog-more" style="margin-top:12px;display:inline-flex">Read More <?= svg_icon('arrow') ?></span>

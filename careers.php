@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/functions.php';
 
 $pageTitle       = 'Careers & LCA Posting — QuantAI Corp';
 $pageDescription = 'Explore open enterprise technology roles at QuantAI Corp and submit your application to join our talent network.';
-$pageSlug        = 'careers.php';
+$pageSlug        = 'careers';
 
 $flash = flash_get();
 $openings = job_openings();

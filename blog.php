@@ -4,7 +4,7 @@ require_once __DIR__ . '/config/db.php';
 
 $pageTitle       = 'Insights & Blog — QuantAI Corp';
 $pageDescription = 'Perspectives on enterprise AI, cloud modernization, cybersecurity, DevOps, and talent intelligence from the QuantAI Corp team.';
-$pageSlug        = 'blog.php';
+$pageSlug        = 'blog';
 
 $posts = [];
 $dbError = false;
@@ -35,7 +35,7 @@ require __DIR__ . '/includes/header.php';
     <?php else: ?>
       <div class="blog-grid" data-stagger>
         <?php foreach ($posts as $post): ?>
-          <a href="/blog-post.php?slug=<?= h($post['slug']) ?>" class="blog-card" data-reveal="scale">
+          <a href="/blog/<?= h($post['slug']) ?>" class="blog-card" data-reveal="scale">
             <div class="blog-cover <?= h(cover_accent_class($post['cover_accent'])) ?>">
               <span class="blog-cover-tag"><?= h($post['category']) ?></span>
               <span class="blog-cover-icon"><?= svg_icon(category_icon($post['category'])) ?></span>
