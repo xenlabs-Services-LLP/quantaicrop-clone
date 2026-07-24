@@ -59,6 +59,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js" defer></script>
+<script src="<?= h(asset_url('/assets/js/main.js')) ?>" defer></script>
 </body>
 </html>

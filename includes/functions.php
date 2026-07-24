@@ -54,6 +54,20 @@ function send_security_headers(): string
     return $nonce;
 }
 
+/**
+ * Append a cache-busting version (file mtime) to a root-relative asset
+ * path, e.g. asset_url('/assets/css/style.css'). This lets us keep long
+ * browser cache lifetimes in .htaccess (fast repeat visits) while still
+ * guaranteeing visitors get the latest CSS/JS the moment a file changes
+ * on the server — no manual hard-refresh required.
+ */
+function asset_url(string $path): string
+{
+    $file = __DIR__ . '/..' . $path;
+    $version = is_file($file) ? filemtime($file) : time();
+    return $path . '?v=' . $version;
+}
+
 /** Escape output for safe HTML rendering. */
 function h(?string $value): string
 {

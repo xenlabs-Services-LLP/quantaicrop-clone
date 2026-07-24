@@ -23,8 +23,8 @@ $navItems = [
 <title><?= h($pageTitle ?? 'Admin') ?> — QuantAI Corp CMS</title>
 <meta name="robots" content="noindex, nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/admin/assets/css/admin.css">
+<link rel="stylesheet" href="<?= h(asset_url('/assets/css/style.css')) ?>">
+<link rel="stylesheet" href="<?= h(asset_url('/admin/assets/css/admin.css')) ?>">
 </head>
 <body class="bg-mesh">
 <div class="admin-body">
