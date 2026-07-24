@@ -17,11 +17,16 @@ reference site.
    database, all tables, a default admin user, and six starter blog posts.
 4. If your MySQL root user has a password, update `config/db.php`
    (`DB_USER` / `DB_PASS`).
-5. Visit `http://localhost/quantaicrop/index.php`.
+5. Make sure Apache's `mod_rewrite` and `mod_headers` modules are enabled
+   (both are on by default in XAMPP) — the root `.htaccess` uses them to
+   serve clean URLs (`/about` instead of `/about.php`) and security headers.
+   `AllowOverride All` must be set for the site's document root so the
+   `.htaccess` rules actually apply (XAMPP's default vhost already allows this).
+6. Visit `http://localhost/quantaicrop/`.
 
 ## 2. Admin CMS
 
-URL: `http://localhost/quantaicrop/admin/login.php`
+URL: `http://localhost/quantaicrop/admin/login`
 
 | Field | Default |
 |---|---|
@@ -44,11 +49,11 @@ From the admin panel you can:
 - **Contacts** — view, mark new/read/archived, and delete messages from the Contact page form.
 - **Enquiries** — view, update status (new/contacted/closed), and delete service-consultation requests.
 - **Applications** — view applicants, download résumés, update status (new/reviewed/shortlisted/rejected/hired), and delete (also removes the stored résumé file).
-- **Blog Posts** — create, edit, publish/unpublish, preview, and delete articles shown on `/blog.php`.
+- **Blog Posts** — create, edit, publish/unpublish, preview, and delete articles shown on `/blog`.
 
 ## 3. Editing job openings
 
-Job listings on `/careers.php` and `/contact.php` are configured in
+Job listings on `/careers` and `/contact` are configured in
 `includes/functions.php` → `job_openings()`. Edit that array to add, remove,
 or change roles — no database change required.
 
@@ -70,6 +75,17 @@ admin/           CMS — auth-gated, noindex
                  careers, contact, blog, blog-post
 *-submit.php     Form handlers (contact, enquiry, application) — POST + CSRF only
 ```
+
+### Clean URLs
+
+The root `.htaccess` rewrites every request so `.php` is never shown or
+required in the address bar: `/about` serves `about.php`, `/admin/contacts`
+serves `admin/contacts.php`, and `/blog/{slug}` serves
+`blog-post.php?slug={slug}`. Any old link that still points at a `.php`
+file (or at `blog-post.php?slug=...`) is 301-redirected to its clean
+equivalent automatically. All internal links, form actions, redirects, the
+sitemap, and `robots.txt` already use the clean form — when adding new
+pages, link to `/new-page`, not `/new-page.php`.
 
 ## 6. Security notes
 
