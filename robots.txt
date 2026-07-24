@@ -4,6 +4,9 @@ Disallow: /admin/
 Disallow: /config/
 Disallow: /includes/
 Disallow: /uploads/
-Disallow: /*-submit.php$
+Disallow: /contact-submit
+Disallow: /enquiry-submit
+Disallow: /application-submit
+Disallow: /newsletter-submit
 
 Sitemap: https://www.quantaicorp.com/sitemap.xml
