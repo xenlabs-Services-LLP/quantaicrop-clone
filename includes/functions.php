@@ -220,13 +220,13 @@ function excerpt_text(string $text, int $length = 160): string
 function main_nav(): array
 {
     return [
-        ['label' => 'Home', 'href' => '/index.php'],
-        ['label' => 'About', 'href' => '/about.php'],
-        ['label' => 'IT Consulting', 'href' => '/it-consulting.php'],
-        ['label' => 'Software Engineering', 'href' => '/software-engineering.php'],
-        ['label' => 'Careers', 'href' => '/careers.php'],
-        ['label' => 'Insights', 'href' => '/blog.php'],
-        ['label' => 'Contact', 'href' => '/contact.php'],
+        ['label' => 'Home', 'href' => '/'],
+        ['label' => 'About', 'href' => '/about'],
+        ['label' => 'IT Consulting', 'href' => '/it-consulting'],
+        ['label' => 'Software Engineering', 'href' => '/software-engineering'],
+        ['label' => 'Careers', 'href' => '/careers'],
+        ['label' => 'Insights', 'href' => '/blog'],
+        ['label' => 'Contact', 'href' => '/contact'],
     ];
 }
 

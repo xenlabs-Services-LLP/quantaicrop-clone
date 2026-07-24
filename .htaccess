@@ -2,6 +2,37 @@
 # QuantAI Corp — root .htaccess (Apache / XAMPP)
 # =====================================================================
 
+DirectoryIndex index.php
+
+# ---- Clean URLs: hide .php everywhere -----------------------------
+# /about serves about.php, /admin/contacts serves admin/contacts.php,
+# /blog/{slug} serves blog-post.php?slug={slug} — no .php ever shown.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1a) Old-style blog-post.php?slug=X links -> /blog/X (preserves the slug
+  #     instead of losing it in the generic .php-stripping redirect below).
+  RewriteCond %{THE_REQUEST} \s/+blog-post\.php\?slug=([a-z0-9-]+)\s [NC]
+  RewriteRule ^ /blog/%1? [R=301,L]
+
+  # 1b) Any other URL that still ends in .php gets permanently redirected
+  #     to the clean, extensionless version (single canonical URL for SEO).
+  RewriteCond %{THE_REQUEST} \s/+(.+)\.php[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L,NE]
+
+  # 2) Pretty blog post URLs: /blog/some-article-slug -> blog-post.php
+  RewriteRule ^blog/([a-z0-9-]+)/?$ blog-post.php?slug=$1 [L,QSA]
+
+  # 3) Generic fallback: /anything -> anything.php, if that file exists
+  #    and the request isn't already a real file or directory (assets,
+  #    /admin/, /uploads/, etc. are left completely alone).
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+  RewriteRule ^(.*?)/?$ $1.php [L]
+</IfModule>
+
 # ---- Security headers -------------------------------------------------
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
