@@ -4,8 +4,8 @@
 --   mysql -u root -p < config/database.sql
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS quantaicrop CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE quantaicrop;
+CREATE DATABASE IF NOT EXISTS u997826032_cms_qua CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE u997826032_cms_qua;
 
 -- ----------------------------------------------------------------------
 -- Admin users (CMS access)
