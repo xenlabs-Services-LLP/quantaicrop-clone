@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute(['status' => $status, 'id' => $id]);
         }
     }
-    header('Location: /admin/enquiries.php');
+    header('Location: /admin/enquiries');
     exit;
 }
 

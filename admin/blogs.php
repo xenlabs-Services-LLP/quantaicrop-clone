@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $stmt = db()->prepare('DELETE FROM blog_posts WHERE id = :id');
     $stmt->execute(['id' => $id]);
     flash_set('success', 'Blog post deleted.');
-    header('Location: /admin/blogs.php');
+    header('Location: /admin/blogs');
     exit;
 }
 
@@ -32,7 +32,7 @@ require __DIR__ . '/includes/header.php';
     <h2>Blog Posts <span class="badge-pill"><?= count($rows) ?> total</span></h2>
     <div class="flex gap-3">
       <input type="text" class="search-input" placeholder="Search posts…" data-table-search="#blogsTable">
-      <a href="/admin/blog-form.php" class="btn btn-primary btn-sm"><?= svg_icon('plus') ?> New Post</a>
+      <a href="/admin/blog-form" class="btn btn-primary btn-sm"><?= svg_icon('plus') ?> New Post</a>
     </div>
   </div>
   <?php if (!$rows): ?>

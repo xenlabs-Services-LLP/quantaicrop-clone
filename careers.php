@@ -15,7 +15,7 @@ require __DIR__ . '/includes/header.php';
 
 <section class="page-hero bg-mesh">
   <div class="container">
-    <div class="breadcrumb" data-reveal><a href="/index.php">Home</a> / <span>Careers</span></div>
+    <div class="breadcrumb" data-reveal><a href="/">Home</a> / <span>Careers</span></div>
     <div class="eyebrow" data-reveal>Careers &amp; LCA Posting</div>
     <h1 data-reveal>Join Our Team of <span class="grad-text">Enterprise Technology</span> Experts</h1>
     <p class="lead" style="max-width:640px" data-reveal>Submit your application and join our talent network — including LCA posting for sponsored roles.</p>
@@ -60,7 +60,7 @@ require __DIR__ . '/includes/header.php';
           <div class="alert alert-<?= $flash['type'] === 'error' ? 'error' : 'success' ?>"><?= h($flash['message']) ?></div>
         <?php endif; ?>
 
-        <form action="/application-submit.php" method="post" enctype="multipart/form-data" data-validate novalidate>
+        <form action="/application-submit" method="post" enctype="multipart/form-data" data-validate novalidate>
           <?= csrf_field() ?>
           <div class="field-row">
             <div class="field">

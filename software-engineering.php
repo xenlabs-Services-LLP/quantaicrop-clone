@@ -3,19 +3,19 @@ require_once __DIR__ . '/includes/functions.php';
 
 $pageTitle       = 'Software Engineering — QuantAI Corp';
 $pageDescription = 'Building enterprise-grade software with cutting-edge engineering practices: cloud architecture, DevOps & CI/CD, application modernization, API & microservices.';
-$pageSlug        = 'software-engineering.php';
+$pageSlug        = 'software-engineering';
 
 require __DIR__ . '/includes/header.php';
 ?>
 
 <section class="page-hero bg-mesh">
   <div class="container">
-    <div class="breadcrumb" data-reveal><a href="/index.php">Home</a> / <span>Software Engineering</span></div>
+    <div class="breadcrumb" data-reveal><a href="/">Home</a> / <span>Software Engineering</span></div>
     <div class="eyebrow" data-reveal>Software Engineering</div>
     <h1 data-reveal>Building Enterprise Software With <span class="grad-text">Cutting-Edge</span> Engineering</h1>
     <p class="lead" style="max-width:640px" data-reveal>Modern architecture, automated delivery, and reliability engineering — built to scale with your business.</p>
     <div class="hero-actions" data-reveal>
-      <a href="/contact.php" class="btn btn-primary magnetic">Discuss Your Project <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+      <a href="/contact" class="btn btn-primary magnetic">Discuss Your Project <span class="arrow"><?= svg_icon('arrow') ?></span></a>
     </div>
   </div>
 </section>
@@ -62,7 +62,7 @@ require __DIR__ . '/includes/header.php';
     <div class="card" style="padding:64px;text-align:center;background:var(--grad-brand-soft)" data-reveal="scale">
       <h2>Ready to Modernize Your Stack?</h2>
       <p class="lead" style="max-width:560px;margin:16px auto 32px">Tell us what you're building — we'll bring the engineering depth to ship it right.</p>
-      <a href="/contact.php" class="btn btn-primary magnetic">Get Started <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+      <a href="/contact" class="btn btn-primary magnetic">Get Started <span class="arrow"><?= svg_icon('arrow') ?></span></a>
     </div>
   </div>
 </section>

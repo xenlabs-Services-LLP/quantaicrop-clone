@@ -3,19 +3,19 @@ require_once __DIR__ . '/includes/functions.php';
 
 $pageTitle       = 'IT Consulting — QuantAI Corp';
 $pageDescription = 'Strategic technology consulting for enterprise-grade digital transformation: cloud architecture, AI & data solutions, cybersecurity, and AI-driven talent solutions.';
-$pageSlug        = 'it-consulting.php';
+$pageSlug        = 'it-consulting';
 
 require __DIR__ . '/includes/header.php';
 ?>
 
 <section class="page-hero bg-mesh">
   <div class="container">
-    <div class="breadcrumb" data-reveal><a href="/index.php">Home</a> / <span>IT Consulting</span></div>
+    <div class="breadcrumb" data-reveal><a href="/">Home</a> / <span>IT Consulting</span></div>
     <div class="eyebrow" data-reveal>IT Consulting</div>
     <h1 data-reveal>Strategic Technology Consulting for <span class="grad-text">Enterprise Transformation</span></h1>
     <p class="lead" style="max-width:640px" data-reveal>We design and implement scalable technology ecosystems that drive operational excellence.</p>
     <div class="hero-actions" data-reveal>
-      <a href="/contact.php" class="btn btn-primary magnetic">Request a Consultation <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+      <a href="/contact" class="btn btn-primary magnetic">Request a Consultation <span class="arrow"><?= svg_icon('arrow') ?></span></a>
     </div>
   </div>
 </section>
@@ -76,7 +76,7 @@ require __DIR__ . '/includes/header.php';
     <div class="card" style="padding:64px;text-align:center;background:var(--grad-brand-soft)" data-reveal="scale">
       <h2>Have a Transformation Roadmap in Mind?</h2>
       <p class="lead" style="max-width:560px;margin:16px auto 32px">Let's talk through your priorities and where our consulting team can accelerate delivery.</p>
-      <a href="/contact.php" class="btn btn-primary magnetic">Talk to an Advisor <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+      <a href="/contact" class="btn btn-primary magnetic">Talk to an Advisor <span class="arrow"><?= svg_icon('arrow') ?></span></a>
     </div>
   </div>
 </section>

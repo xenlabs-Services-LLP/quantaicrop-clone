@@ -90,8 +90,8 @@ $cspNonce        = send_security_headers();
       <?php endforeach; ?>
     </nav>
     <div class="nav-cta">
-      <a href="/contact.php" class="btn btn-ghost btn-sm">Get in Touch</a>
-      <a href="/careers.php" class="btn btn-primary btn-sm magnetic">Apply Now <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+      <a href="/contact" class="btn btn-ghost btn-sm">Get in Touch</a>
+      <a href="/careers" class="btn btn-primary btn-sm magnetic">Apply Now <span class="arrow"><?= svg_icon('arrow') ?></span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
         <span></span>
       </button>
@@ -104,7 +104,7 @@ $cspNonce        = send_security_headers();
   <?php foreach (main_nav() as $item): ?>
     <a href="<?= h($item['href']) ?>"><?= h($item['label']) ?></a>
   <?php endforeach; ?>
-  <a href="/careers.php" class="btn btn-primary btn-block" style="margin-top:24px">Apply Now</a>
+  <a href="/careers" class="btn btn-primary btn-block" style="margin-top:24px">Apply Now</a>
 </nav>
 
 <main id="main">

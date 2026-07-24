@@ -8,7 +8,7 @@
     <?php endif; ?>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/index.php" class="brand">
+        <a href="/" class="brand">
           <span class="brand-mark"><?= svg_icon('brand') ?></span>
           QuantAI Corp
         </a>
@@ -22,19 +22,19 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="/it-consulting.php">Enterprise IT Consulting</a></li>
-          <li><a href="/it-consulting.php">AI &amp; Data Solutions</a></li>
-          <li><a href="/software-engineering.php">Software Engineering</a></li>
-          <li><a href="/it-consulting.php">Cybersecurity &amp; Compliance</a></li>
+          <li><a href="/it-consulting">Enterprise IT Consulting</a></li>
+          <li><a href="/it-consulting">AI &amp; Data Solutions</a></li>
+          <li><a href="/software-engineering">Software Engineering</a></li>
+          <li><a href="/it-consulting">Cybersecurity &amp; Compliance</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="/about.php">About Us</a></li>
-          <li><a href="/careers.php">Careers</a></li>
-          <li><a href="/blog.php">Insights</a></li>
-          <li><a href="/contact.php">Contact</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/blog">Insights</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col" id="newsletter">
@@ -44,7 +44,7 @@
           <li><a href="tel:<?= h(preg_replace('/[^0-9+]/', '', COMPANY_PHONE)) ?>"><?= svg_icon('phone') ?> <?= h(COMPANY_PHONE) ?></a></li>
           <li><a href="mailto:<?= h(COMPANY_EMAIL) ?>"><?= svg_icon('mail') ?> <?= h(COMPANY_EMAIL) ?></a></li>
         </ul>
-        <form class="newsletter-form" action="/newsletter-submit.php" method="post" data-validate novalidate>
+        <form class="newsletter-form" action="/newsletter-submit" method="post" data-validate novalidate>
           <?= csrf_field() ?>
           <input type="email" name="email" placeholder="Your work email" aria-label="Email for newsletter" required>
           <button type="submit" aria-label="Subscribe"><?= svg_icon('arrow') ?></button>

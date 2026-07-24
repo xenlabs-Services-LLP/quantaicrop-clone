@@ -19,7 +19,7 @@ require __DIR__ . '/includes/header.php';
 
 <section class="page-hero bg-mesh">
   <div class="container">
-    <div class="breadcrumb" data-reveal><a href="/index.php">Home</a> / <span>Insights</span></div>
+    <div class="breadcrumb" data-reveal><a href="/">Home</a> / <span>Insights</span></div>
     <div class="eyebrow" data-reveal>Insights</div>
     <h1 data-reveal>Perspectives on <span class="grad-text">Enterprise Technology</span></h1>
     <p class="lead" style="max-width:640px" data-reveal>Practical thinking on AI, cloud, security, DevOps, and talent — from the team building it.</p>

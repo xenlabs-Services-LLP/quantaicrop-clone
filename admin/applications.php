@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute(['status' => $status, 'id' => $id]);
         }
     }
-    header('Location: /admin/applications.php');
+    header('Location: /admin/applications');
     exit;
 }
 

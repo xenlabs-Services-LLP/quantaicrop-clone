@@ -3,14 +3,14 @@ require_once __DIR__ . '/includes/functions.php';
 
 $pageTitle       = 'About Us — QuantAI Corp';
 $pageDescription = 'QuantAI Corp is redefining how enterprises build and scale technology, combining strategic advisory, engineering, and AI-powered talent intelligence.';
-$pageSlug        = 'about.php';
+$pageSlug        = 'about';
 
 require __DIR__ . '/includes/header.php';
 ?>
 
 <section class="page-hero bg-mesh">
   <div class="container">
-    <div class="breadcrumb" data-reveal><a href="/index.php">Home</a> / <span>About</span></div>
+    <div class="breadcrumb" data-reveal><a href="/">Home</a> / <span>About</span></div>
     <div class="eyebrow" data-reveal>About QuantAI Corp</div>
     <h1 data-reveal>Redefining How Enterprises <span class="grad-text">Build &amp; Scale</span> Technology</h1>
     <p class="lead" style="max-width:640px" data-reveal>A strategic technology partner for organizations navigating digital disruption, cloud transformation, and AI adoption.</p>
@@ -93,7 +93,7 @@ require __DIR__ . '/includes/header.php';
     <div class="card" style="padding:64px;text-align:center;background:var(--grad-brand-soft)" data-reveal="scale">
       <h2>Let's Build Something Enterprise-Grade Together</h2>
       <p class="lead" style="max-width:560px;margin:16px auto 32px">Tell us about your technology roadmap and we'll show you where we can help.</p>
-      <a href="/contact.php" class="btn btn-primary magnetic">Start the Conversation <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+      <a href="/contact" class="btn btn-primary magnetic">Start the Conversation <span class="arrow"><?= svg_icon('arrow') ?></span></a>
     </div>
   </div>
 </section>

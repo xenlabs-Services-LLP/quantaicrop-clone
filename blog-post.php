@@ -17,7 +17,7 @@ if (!$post) {
     $pageTitle = 'Article Not Found — QuantAI Corp';
     $pageSlug  = 'blog-post.php';
     require __DIR__ . '/includes/header.php';
-    echo '<section class="section"><div class="container text-center"><h1>404</h1><p class="lead">That article could not be found.</p><a href="/blog.php" class="btn btn-primary" style="margin-top:24px">Back to Insights</a></div></section>';
+    echo '<section class="section"><div class="container text-center"><h1>404</h1><p class="lead">That article could not be found.</p><a href="/blog" class="btn btn-primary" style="margin-top:24px">Back to Insights</a></div></section>';
     require __DIR__ . '/includes/footer.php';
     exit;
 }
@@ -49,7 +49,7 @@ require __DIR__ . '/includes/header.php';
 
 <section class="page-hero bg-mesh">
   <div class="container">
-    <div class="breadcrumb" data-reveal><a href="/index.php">Home</a> / <a href="/blog.php">Insights</a> / <span><?= h($post['category']) ?></span></div>
+    <div class="breadcrumb" data-reveal><a href="/">Home</a> / <a href="/blog">Insights</a> / <span><?= h($post['category']) ?></span></div>
     <div class="eyebrow" data-reveal><?= h($post['category']) ?></div>
     <h1 style="max-width:840px" data-reveal><?= h($post['title']) ?></h1>
     <p class="lead" data-reveal><?= h($post['author']) ?> &middot; <?= h(fmt_date($post['published_at'])) ?></p>

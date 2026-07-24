@@ -22,7 +22,7 @@ require __DIR__ . '/includes/header.php';
 
 <section class="page-hero bg-mesh">
   <div class="container">
-    <div class="breadcrumb" data-reveal><a href="/index.php">Home</a> / <span>Contact</span></div>
+    <div class="breadcrumb" data-reveal><a href="/">Home</a> / <span>Contact</span></div>
     <div class="eyebrow" data-reveal>Get in Touch</div>
     <h1 data-reveal>Let's Build the <span class="grad-text">Future</span> Together</h1>
     <p class="lead" style="max-width:640px" data-reveal>Whether you're modernizing infrastructure, deploying AI, or scaling your workforce — we're ready to partner with you.</p>
@@ -62,7 +62,7 @@ require __DIR__ . '/includes/header.php';
         <?php if ($flash): ?>
           <div class="alert alert-<?= $flash['type'] === 'error' ? 'error' : 'success' ?>"><?= h($flash['message']) ?></div>
         <?php endif; ?>
-        <form action="/contact-submit.php" method="post" data-validate novalidate>
+        <form action="/contact-submit" method="post" data-validate novalidate>
           <?= csrf_field() ?>
           <div class="field-row">
             <div class="field">
@@ -112,7 +112,7 @@ require __DIR__ . '/includes/header.php';
         <?php if ($flash): ?>
           <div class="alert alert-<?= $flash['type'] === 'error' ? 'error' : 'success' ?>"><?= h($flash['message']) ?></div>
         <?php endif; ?>
-        <form action="/enquiry-submit.php" method="post" data-validate novalidate>
+        <form action="/enquiry-submit" method="post" data-validate novalidate>
           <?= csrf_field() ?>
           <div class="field-row">
             <div class="field">
@@ -191,7 +191,7 @@ require __DIR__ . '/includes/header.php';
         <div class="card" data-reveal="scale">
           <h3><?= h($job['title']) ?></h3>
           <p><?= h($job['location']) ?> &middot; <?= h($job['experience']) ?></p>
-          <a href="/careers.php#apply" class="btn btn-ghost btn-sm" style="margin-top:16px">Apply Now <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+          <a href="/careers#apply" class="btn btn-ghost btn-sm" style="margin-top:16px">Apply Now <span class="arrow"><?= svg_icon('arrow') ?></span></a>
         </div>
       <?php endforeach; ?>
     </div>

@@ -5,7 +5,7 @@ require_once __DIR__ . '/config/db.php';
 qc_session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /careers.php');
+    header('Location: /careers');
     exit;
 }
 
@@ -52,7 +52,7 @@ if (!$errors) {
 
 if ($errors) {
     flash_set('error', implode(' ', $errors));
-    header('Location: /careers.php#apply');
+    header('Location: /careers#apply');
     exit;
 }
 
@@ -83,5 +83,5 @@ try {
     flash_set('error', 'Something went wrong while submitting your application. Please try again.');
 }
 
-header('Location: /careers.php#apply');
+header('Location: /careers#apply');
 exit;

@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['delete'])) {
                 ]);
                 flash_set('success', 'Blog post created.');
             }
-            header('Location: /admin/blogs.php');
+            header('Location: /admin/blogs');
             exit;
         } catch (PDOException $e) {
             $errors[] = str_contains($e->getMessage(), 'Duplicate')
@@ -135,7 +135,7 @@ require __DIR__ . '/includes/header.php';
 
     <div class="flex gap-3">
       <button type="submit" class="btn btn-primary">Save Post</button>
-      <a href="/admin/blogs.php" class="btn btn-ghost">Cancel</a>
+      <a href="/admin/blogs" class="btn btn-ghost">Cancel</a>
     </div>
   </form>
 </div>

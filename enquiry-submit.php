@@ -5,7 +5,7 @@ require_once __DIR__ . '/config/db.php';
 qc_session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /contact.php');
+    header('Location: /contact');
     exit;
 }
 
@@ -35,7 +35,7 @@ if ($message === '') {
 
 if ($errors) {
     flash_set('error', implode(' ', $errors));
-    header('Location: /contact.php#enquiry-form');
+    header('Location: /contact#enquiry-form');
     exit;
 }
 
@@ -60,5 +60,5 @@ try {
     flash_set('error', 'Something went wrong while sending your request. Please try again.');
 }
 
-header('Location: /contact.php#enquiry-form');
+header('Location: /contact#enquiry-form');
 exit;

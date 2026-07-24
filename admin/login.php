@@ -6,7 +6,7 @@ qc_session_start();
 send_security_headers();
 
 if (!empty($_SESSION['admin_id'])) {
-    header('Location: /admin/index.php');
+    header('Location: /admin/');
     exit;
 }
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $upd = db()->prepare('UPDATE admin_users SET last_login = NOW() WHERE id = :id');
             $upd->execute(['id' => $user['id']]);
 
-            header('Location: /admin/index.php');
+            header('Location: /admin/');
             exit;
         }
 
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <button type="submit" class="btn btn-primary btn-block">Sign In <span class="arrow"><?= svg_icon('arrow') ?></span></button>
     </form>
-    <p class="text-center" style="margin-top:24px;font-size:.8rem"><a href="/index.php" style="color:var(--text-3)">← Back to site</a></p>
+    <p class="text-center" style="margin-top:24px;font-size:.8rem"><a href="/" style="color:var(--text-3)">← Back to site</a></p>
   </div>
 </div>
 </body>

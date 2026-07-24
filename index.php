@@ -32,8 +32,8 @@ require __DIR__ . '/includes/header.php';
         <h1 data-reveal>Engineering the <span class="grad-text">Future</span> of Enterprise Technology</h1>
         <p class="lead" data-reveal>AI-driven IT consulting, software engineering, and talent intelligence — built for enterprises navigating cloud transformation and AI adoption.</p>
         <div class="hero-actions" data-reveal>
-          <a href="/contact.php" class="btn btn-primary magnetic">Start a Conversation <span class="arrow"><?= svg_icon('arrow') ?></span></a>
-          <a href="/it-consulting.php" class="btn btn-ghost magnetic">Explore Our Services</a>
+          <a href="/contact" class="btn btn-primary magnetic">Start a Conversation <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+          <a href="/it-consulting" class="btn btn-ghost magnetic">Explore Our Services</a>
         </div>
         <div class="hero-stats" data-reveal>
           <div class="hero-stat"><b class="count" data-count="120" data-suffix="+">0</b><span>Enterprise Engagements</span></div>
@@ -100,7 +100,7 @@ require __DIR__ . '/includes/header.php';
         <p class="lead" style="margin-top:18px">We are a next-generation technology partner combining strategic advisory, advanced engineering, and AI-powered talent intelligence.</p>
         <p style="margin-top:16px">Unlike traditional staffing firms, we integrate enterprise technology consulting, Cloud &amp; DevOps engineering, AI &amp; data transformation, and scalable IT workforce solutions into a single, accountable partnership.</p>
         <p style="margin-top:12px">Our model is built for long-term partnerships, measurable impact, and sustainable growth.</p>
-        <a href="/about.php" class="btn btn-ghost magnetic" style="margin-top:28px">More About Us <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+        <a href="/about" class="btn btn-ghost magnetic" style="margin-top:28px">More About Us <span class="arrow"><?= svg_icon('arrow') ?></span></a>
       </div>
       <div class="grid-12" data-reveal="right" data-stagger>
         <div class="card" style="grid-column:span 6" data-reveal="scale">
@@ -296,8 +296,8 @@ require __DIR__ . '/includes/header.php';
       <h2>Ready to Build the Future of Your Enterprise?</h2>
       <p class="lead" style="max-width:560px;margin:16px auto 32px">Whether you're modernizing infrastructure, deploying AI, or scaling your workforce — we're ready to partner with you.</p>
       <div class="flex gap-3" style="justify-content:center;flex-wrap:wrap">
-        <a href="/contact.php" class="btn btn-primary magnetic">Talk to Our Team <span class="arrow"><?= svg_icon('arrow') ?></span></a>
-        <a href="/careers.php" class="btn btn-ghost magnetic">View Open Roles</a>
+        <a href="/contact" class="btn btn-primary magnetic">Talk to Our Team <span class="arrow"><?= svg_icon('arrow') ?></span></a>
+        <a href="/careers" class="btn btn-ghost magnetic">View Open Roles</a>
       </div>
     </div>
   </div>

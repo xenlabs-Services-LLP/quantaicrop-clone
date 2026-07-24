@@ -9,7 +9,7 @@ require_once __DIR__ . '/../../config/db.php';
 qc_session_start();
 
 if (empty($_SESSION['admin_id'])) {
-    header('Location: /admin/login.php');
+    header('Location: /admin/login');
     exit;
 }
 
@@ -18,7 +18,7 @@ $idleLimit = 60 * 60;
 if (!empty($_SESSION['admin_last_active']) && (time() - $_SESSION['admin_last_active']) > $idleLimit) {
     session_unset();
     session_destroy();
-    header('Location: /admin/login.php?timeout=1');
+    header('Location: /admin/login?timeout=1');
     exit;
 }
 $_SESSION['admin_last_active'] = time();

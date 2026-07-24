@@ -30,7 +30,7 @@ $navItems = [
 <div class="admin-body">
   <div class="drawer-overlay" id="sidebarOverlay"></div>
   <aside class="admin-sidebar" id="adminSidebar">
-    <a href="/admin/index.php" class="brand">
+    <a href="/admin/" class="brand">
       <span class="brand-mark"><?= svg_icon('brand') ?></span> QuantAI CMS
     </a>
     <nav class="admin-nav">
@@ -40,8 +40,8 @@ $navItems = [
         </a>
       <?php endforeach; ?>
       <div class="admin-nav-group">Site</div>
-      <a href="/index.php" target="_blank"><?= svg_icon('arrow') ?> View Website</a>
-      <a href="/admin/logout.php"><?= svg_icon('check') ?> Sign Out</a>
+      <a href="/" target="_blank"><?= svg_icon('arrow') ?> View Website</a>
+      <a href="/admin/logout"><?= svg_icon('check') ?> Sign Out</a>
     </nav>
   </aside>
 
