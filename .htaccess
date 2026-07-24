@@ -1,0 +1,42 @@
+# =====================================================================
+# QuantAI Corp — root .htaccess (Apache / XAMPP)
+# =====================================================================
+
+# ---- Security headers -------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+  # Uncomment once served over HTTPS in production:
+  # Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+</IfModule>
+
+# ---- Hide server signature / directory listings ------------------------
+Options -Indexes
+ServerSignature Off
+
+# ---- Block access to sensitive file types anywhere in the site --------
+<FilesMatch "\.(sql|md|log|env|ini|bak|sh)$">
+  Require all denied
+</FilesMatch>
+
+# ---- Gzip compression ---------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# ---- Browser caching ------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+</IfModule>
+
+# Note: PHP execution is disabled specifically inside /uploads/resumes/
+# via its own .htaccess — see that directory for the resume-upload
+# hardening rules. Do not disable PHP site-wide here.

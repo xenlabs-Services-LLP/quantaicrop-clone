@@ -1,0 +1,12 @@
+# Resumes are only ever served through admin/download-resume.php (auth-checked).
+# Block all direct web access to this directory.
+Require all denied
+
+<IfModule !mod_authz_core.c>
+  Order deny,allow
+  Deny from all
+</IfModule>
+
+php_flag engine off
+Options -Indexes -ExecCGI
+AddType text/plain .php .php3 .phtml .pht
