@@ -8,11 +8,11 @@ $admin = current_admin();
 $activeNav = $activeNav ?? '';
 
 $navItems = [
-    ['key' => 'dashboard',    'label' => 'Dashboard',    'href' => '/admin/index.php',        'icon' => 'gauge'],
-    ['key' => 'contacts',     'label' => 'Contacts',     'href' => '/admin/contacts.php',     'icon' => 'mail'],
-    ['key' => 'enquiries',    'label' => 'Enquiries',    'href' => '/admin/enquiries.php',    'icon' => 'target'],
-    ['key' => 'applications', 'label' => 'Applications', 'href' => '/admin/applications.php', 'icon' => 'people'],
-    ['key' => 'blogs',        'label' => 'Blog Posts',   'href' => '/admin/blogs.php',        'icon' => 'book'],
+    ['key' => 'dashboard',    'label' => 'Dashboard',    'href' => '/admin/',             'icon' => 'gauge'],
+    ['key' => 'contacts',     'label' => 'Contacts',     'href' => '/admin/contacts',     'icon' => 'mail'],
+    ['key' => 'enquiries',    'label' => 'Enquiries',    'href' => '/admin/enquiries',    'icon' => 'target'],
+    ['key' => 'applications', 'label' => 'Applications', 'href' => '/admin/applications', 'icon' => 'people'],
+    ['key' => 'blogs',        'label' => 'Blog Posts',   'href' => '/admin/blogs',        'icon' => 'book'],
 ];
 ?>
 <!doctype html>

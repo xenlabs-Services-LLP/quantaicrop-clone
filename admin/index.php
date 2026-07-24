@@ -54,7 +54,7 @@ require __DIR__ . '/includes/header.php';
 
 <div class="grid-12">
   <div class="panel" style="grid-column:span 6">
-    <div class="panel-head"><h2>Recent Contact Messages</h2><a href="/admin/contacts.php" class="btn btn-ghost btn-sm">View All</a></div>
+    <div class="panel-head"><h2>Recent Contact Messages</h2><a href="/admin/contacts" class="btn btn-ghost btn-sm">View All</a></div>
     <?php if ($recentContacts): ?>
       <table class="admin-table">
         <thead><tr><th>Name</th><th>Subject</th><th>Received</th></tr></thead>
@@ -74,7 +74,7 @@ require __DIR__ . '/includes/header.php';
   </div>
 
   <div class="panel" style="grid-column:span 6">
-    <div class="panel-head"><h2>Recent Applications</h2><a href="/admin/applications.php" class="btn btn-ghost btn-sm">View All</a></div>
+    <div class="panel-head"><h2>Recent Applications</h2><a href="/admin/applications" class="btn btn-ghost btn-sm">View All</a></div>
     <?php if ($recentApps): ?>
       <table class="admin-table">
         <thead><tr><th>Applicant</th><th>Role</th><th>Received</th></tr></thead>

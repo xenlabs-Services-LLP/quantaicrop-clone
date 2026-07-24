@@ -67,7 +67,7 @@ require __DIR__ . '/includes/header.php';
         <td><?= h($r['visa_type']) ?></td>
         <td><?= h($r['experience_years']) ?></td>
         <td>
-          <a href="/admin/download-resume.php?id=<?= (int)$r['id'] ?>" class="icon-btn" aria-label="Download resume"><?= svg_icon('download') ?></a>
+          <a href="/admin/download-resume?id=<?= (int)$r['id'] ?>" class="icon-btn" aria-label="Download resume"><?= svg_icon('download') ?></a>
         </td>
         <td>
           <form method="post">

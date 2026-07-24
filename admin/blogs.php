@@ -43,14 +43,14 @@ require __DIR__ . '/includes/header.php';
     <tbody>
       <?php foreach ($rows as $r): ?>
       <tr>
-        <td><b style="color:var(--text-0)"><?= h($r['title']) ?></b><br><span style="font-size:.78rem;color:var(--text-3)">/blog-post.php?slug=<?= h($r['slug']) ?></span></td>
+        <td><b style="color:var(--text-0)"><?= h($r['title']) ?></b><br><span style="font-size:.78rem;color:var(--text-3)">/blog/<?= h($r['slug']) ?></span></td>
         <td><?= h($r['category']) ?></td>
         <td><span class="status-pill <?= $r['is_published'] ? 'status-hired' : 'status-archived' ?>"><?= $r['is_published'] ? 'Published' : 'Draft' ?></span></td>
         <td class="nowrap"><?= h(fmt_date($r['published_at'])) ?></td>
         <td>
           <div class="row-actions">
-            <a href="/blog-post.php?slug=<?= h($r['slug']) ?>" target="_blank" class="icon-btn" aria-label="Preview"><?= svg_icon('eye') ?></a>
-            <a href="/admin/blog-form.php?id=<?= (int)$r['id'] ?>" class="icon-btn" aria-label="Edit"><?= svg_icon('edit') ?></a>
+            <a href="/blog/<?= h($r['slug']) ?>" target="_blank" class="icon-btn" aria-label="Preview"><?= svg_icon('eye') ?></a>
+            <a href="/admin/blog-form?id=<?= (int)$r['id'] ?>" class="icon-btn" aria-label="Edit"><?= svg_icon('edit') ?></a>
             <form method="post" data-confirm="Delete this blog post permanently?">
               <?= csrf_field() ?>
               <input type="hidden" name="id" value="<?= (int)$r['id'] ?>">

@@ -15,7 +15,7 @@ try {
 if (!$post) {
     http_response_code(404);
     $pageTitle = 'Article Not Found — QuantAI Corp';
-    $pageSlug  = 'blog-post.php';
+    $pageSlug  = 'blog';
     require __DIR__ . '/includes/header.php';
     echo '<section class="section"><div class="container text-center"><h1>404</h1><p class="lead">That article could not be found.</p><a href="/blog" class="btn btn-primary" style="margin-top:24px">Back to Insights</a></div></section>';
     require __DIR__ . '/includes/footer.php';
@@ -33,7 +33,7 @@ try {
 
 $pageTitle       = $post['title'] . ' — QuantAI Corp Insights';
 $pageDescription = excerpt_text($post['excerpt'], 160);
-$pageSlug        = 'blog-post.php?slug=' . $post['slug'];
+$pageSlug        = 'blog/' . $post['slug'];
 $pageSchema = json_encode([
     '@context' => 'https://schema.org',
     '@type'    => 'BlogPosting',
@@ -73,7 +73,7 @@ require __DIR__ . '/includes/header.php';
     </div>
     <div class="cards-grid cols-3" data-stagger>
       <?php foreach ($related as $r): ?>
-        <a href="/blog-post.php?slug=<?= h($r['slug']) ?>" class="card" data-reveal="scale">
+        <a href="/blog/<?= h($r['slug']) ?>" class="card" data-reveal="scale">
           <span class="blog-tag"><?= h($r['category']) ?></span>
           <h3 style="margin-top:8px"><?= h($r['title']) ?></h3>
           <span class="blog-more" style="margin-top:12px;display:inline-flex">Read More <?= svg_icon('arrow') ?></span>
