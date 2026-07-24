@@ -273,9 +273,11 @@ require __DIR__ . '/includes/header.php';
     <div class="blog-grid" data-stagger>
       <?php foreach ($latestPosts as $post): ?>
         <a href="/blog-post.php?slug=<?= h($post['slug']) ?>" class="blog-card" data-reveal="scale">
-          <div class="blog-cover" style="--cover:var(--grad-brand)"></div>
+          <div class="blog-cover <?= h(cover_accent_class($post['cover_accent'])) ?>">
+            <span class="blog-cover-tag"><?= h($post['category']) ?></span>
+            <span class="blog-cover-icon"><?= svg_icon(category_icon($post['category'])) ?></span>
+          </div>
           <div class="blog-body">
-            <span class="blog-tag"><?= h($post['category']) ?></span>
             <h3><?= h($post['title']) ?></h3>
             <p><?= h(excerpt_text($post['excerpt'], 110)) ?></p>
             <span class="blog-more">Read More <?= svg_icon('arrow') ?></span>

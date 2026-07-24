@@ -260,6 +260,26 @@ function partner_logos(): array
     return $logos;
 }
 
+/** Maps a blog category name to a representative icon key for its cover. */
+function category_icon(string $category): string
+{
+    $map = [
+        'Artificial Intelligence' => 'ai',
+        'Cloud & DevOps'          => 'cloud',
+        'Talent Intelligence'     => 'people',
+        'Cybersecurity'           => 'shield',
+    ];
+    return $map[$category] ?? 'book';
+}
+
+/** Maps a stored cover_accent value to the CSS class used on .blog-cover. */
+function cover_accent_class(?string $accent): string
+{
+    $allowed = ['blue', 'cyan', 'purple'];
+    $accent = in_array($accent, $allowed, true) ? $accent : 'blue';
+    return 'accent-' . $accent;
+}
+
 /** Small monochrome glyph used inside each logo-marquee wordmark. */
 function logo_glyph(string $shape): string
 {

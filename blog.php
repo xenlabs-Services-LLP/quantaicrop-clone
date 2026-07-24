@@ -9,7 +9,7 @@ $pageSlug        = 'blog.php';
 $posts = [];
 $dbError = false;
 try {
-    $posts = db()->query("SELECT title, slug, excerpt, category, published_at FROM blog_posts WHERE is_published = 1 ORDER BY published_at DESC")->fetchAll();
+    $posts = db()->query("SELECT title, slug, excerpt, category, cover_accent, published_at FROM blog_posts WHERE is_published = 1 ORDER BY published_at DESC")->fetchAll();
 } catch (Throwable $e) {
     $dbError = true;
 }
@@ -36,9 +36,11 @@ require __DIR__ . '/includes/header.php';
       <div class="blog-grid" data-stagger>
         <?php foreach ($posts as $post): ?>
           <a href="/blog-post.php?slug=<?= h($post['slug']) ?>" class="blog-card" data-reveal="scale">
-            <div class="blog-cover" style="--cover:var(--grad-brand)"></div>
+            <div class="blog-cover <?= h(cover_accent_class($post['cover_accent'])) ?>">
+              <span class="blog-cover-tag"><?= h($post['category']) ?></span>
+              <span class="blog-cover-icon"><?= svg_icon(category_icon($post['category'])) ?></span>
+            </div>
             <div class="blog-body">
-              <span class="blog-tag"><?= h($post['category']) ?></span>
               <h3><?= h($post['title']) ?></h3>
               <p><?= h(excerpt_text($post['excerpt'], 130)) ?></p>
               <div class="blog-meta">
